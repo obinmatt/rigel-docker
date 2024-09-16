@@ -1,0 +1,12 @@
+services:
+  rigel-docker:
+    build: .
+    container_name: rigel
+    entrypoint: /rigelminer/rigel -a autolykos2 -o stratum+tcp://65.108.57.232:3052 -u YOUR_ADDR.worker
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: cdi
+              device_ids:
+              - nvidia.com/gpu=all
